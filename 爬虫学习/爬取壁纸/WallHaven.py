@@ -17,7 +17,7 @@ class WallPaperSpider(object):
             try:
                 my_header = my_headers.return_one_header()
                 my_proxy = my_proxies.return_one_ip()
-                soup = requests.get(url, headers=my_header, proxies=my_proxy, timeout=10)
+                soup = requests.get(url, headers=my_header, proxies=my_proxy, timeout=5)
                 soup.raise_for_status()
                 soup.encoding = soup.apparent_encoding
                 b_overtime = False
@@ -73,8 +73,8 @@ class WallPaperSpider(object):
 
 
 if __name__ == '__main__':
-    wallpaper_url = 'https://wallhaven.cc/search?categories=110&purity=100' \
-                    '&resolutions=1920x1080&topRange=1M&sorting=toplist&order=desc&page='
+    wallpaper_url = 'https://wallhaven.cc/search?categories=110&purity=100&' \
+                    'resolutions=1920x1080&topRange=3M&sorting=toplist&order=desc&page=2'
     new_spider = WallPaperSpider(wallpaper_url)
     new_spider.download_wallpaper()
 

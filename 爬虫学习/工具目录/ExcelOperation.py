@@ -27,6 +27,3 @@ class ExcelOperation(object):
     def write_in_cell(self, row, col, value):
         ws = self.excel_workbook.active
         ws.cell(row, col, value)
-
-
-
